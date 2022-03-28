@@ -31,7 +31,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aperiam sunt quo similique,
                         dolorum consectetur inventore ipsam, officiis neque natus eius harum alias quidem. Possimus
                         nobis in inventore tenetur asperiores.</p>
-                    <a href="#" class="btn btn-primary">Book tickets</a>
+                    <a class="btn btn-primary open">Book tickets</a>
                 </article>
 
                 <article class="evento card p-5 m-3">
@@ -40,7 +40,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aperiam sunt quo similique,
                         dolorum consectetur inventore ipsam, officiis neque natus eius harum alias quidem. Possimus
                         nobis in inventore tenetur asperiores.</p>
-                    <a href="#" class="btn btn-primary">Book tickets</a>
+                    <a class="btn btn-primary open">Book tickets</a>
                 </article>
 
                 <article class="evento card p-5 m-3">
@@ -49,7 +49,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aperiam sunt quo similique,
                         dolorum consectetur inventore ipsam, officiis neque natus eius harum alias quidem. Possimus
                         nobis in inventore tenetur asperiores.</p>
-                    <a href="#" class="btn btn-primary">Book tickets</a>
+                    <a class="btn btn-primary open">Book tickets</a>
                 </article>
 
                 <article class="evento card p-5 m-3">
@@ -58,7 +58,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aperiam sunt quo similique,
                         dolorum consectetur inventore ipsam, officiis neque natus eius harum alias quidem. Possimus
                         nobis in inventore tenetur asperiores.</p>
-                    <a href="#" class="btn btn-primary">Book tickets</a>
+                    <a class="btn btn-primary open">Book tickets</a>
                 </article>
 
                 <article class="evento card p-5 m-3">
@@ -67,7 +67,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aperiam sunt quo similique,
                         dolorum consectetur inventore ipsam, officiis neque natus eius harum alias quidem. Possimus
                         nobis in inventore tenetur asperiores.</p>
-                    <a href="#" class="btn btn-primary">Book tickets</a>
+                    <a class="btn btn-primary open">Book tickets</a>
                 </article>
 
                 <article class="evento card p-5 m-3">
@@ -76,10 +76,36 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aperiam sunt quo similique,
                         dolorum consectetur inventore ipsam, officiis neque natus eius harum alias quidem. Possimus
                         nobis in inventore tenetur asperiores.</p>
-                    <a href="#" class="btn btn-primary">Book tickets</a>
+                    <a class="btn btn-primary open">Book tickets</a>
                 </article>
             </div>
         </section>
+
+        <!-- MODAL -->
+        <section class="modal-container">
+            <div class="my-modal">
+                <div class="close">
+                    <a id="close"> X </a>
+                </div>
+
+                <h1>Book tickets</h1>
+                <form action="" method="post">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" name="email" required>
+
+                    <label for="tickets">Tickets</label>
+                    <input type="number" name="tickets" required>
+
+                    <div id="form-send">
+                        <input type="submit" id="send" class="btn btn-primary" value="Send">
+                    </div>
+                </form>
+            </div>
+        </section>
+        <!-- MODAL -->
 
         <section class="full d-flex justify-content-center align-items-center"
             style="background-color: #f2f2f2; color: #555">
@@ -116,7 +142,7 @@
 
     <footer>
         <div class="container d-flex justify-content-center align-items-center">
-            <a href="#">
+            <a href="index.html">
                 <img src="img/Sound-logo-black (1).png" width="200px" alt="">
             </a>
 
@@ -132,6 +158,8 @@
             </nav>
         </div>
     </footer>
+
+    <script src="js/index.js"></script>
 </body>
 
 </html>

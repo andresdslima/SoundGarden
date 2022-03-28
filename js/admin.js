@@ -15,28 +15,29 @@ formNovoEvento.onsubmit = async evento => {
     evento.preventDefault();
 
     try {
+        const convertedDate = new Date(dataNovoEvento.value).toISOString();
+
         const novoEvento = {
             name: nomeNovoEvento.value,
-            attractions: [
-                atracoesNovoEvento.value,
-            ],
+            poster: "https://www.google.com",
+            attractions: atracoesNovoEvento.value.split(', '),
             description: descricaoNovoEvento.value,
-            scheduled: dataNovoEvento.value,
+            scheduled: convertedDate,
             number_tickets: ticketsNovoEvento.value,
-        };
+        };      
 
         const options = {
             method: "POST",
             body: JSON.stringify(novoEvento),
             headers: {
-                'Content-Type': "application/json; charset=utf-8",
-            }
+                "Content-Type": "application/json",
+            },
         };
 
         const resposta = await fetch(`${BASE_URL}/events`, options);
         const conteudoResposta = await resposta.json();
         console.log(conteudoResposta);
-        alert('Deu certo');
+        alert('Deu bom')
 
     } catch (error) {
         console.log(error);

@@ -66,6 +66,43 @@ footer nav ul li {
 }
 
 /* MODAL */
+.modal-container {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    /* opacity: 0; */
+}
+
+.modal-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.modal-container.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 30px 50px;
+    width: 600px;
+    max-width: 100%;
+    text-align: center;
+}
+
 /* main {
     background-color: rgba(0, 0, 0, 0.8);
     display: flex;

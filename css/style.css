@@ -78,7 +78,7 @@ footer nav ul li {
     justify-content: center;
     pointer-events: none;
     transition: opacity 0.3s ease;
-    /* opacity: 0; */
+    opacity: 0;
 }
 
 .modal-container form {

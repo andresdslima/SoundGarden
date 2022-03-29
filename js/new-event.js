@@ -20,6 +20,8 @@ const formNovoEvento = document.querySelector('form');
 
 const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com';
 
+var idNovoEvento;
+
 formNovoEvento.onsubmit = async event => {
     event.preventDefault();
 
@@ -43,8 +45,9 @@ formNovoEvento.onsubmit = async event => {
 
         const resposta = await fetch(`${BASE_URL}/events`, options);
         const conteudoResposta = await resposta.json();
-        var idNovoEvento = conteudoResposta._id;
+        idNovoEvento = conteudoResposta._id;
         alert('Deu bom')
+        return idNovoEvento;
 
     } catch (error) {
         console.log(error);
@@ -52,4 +55,10 @@ formNovoEvento.onsubmit = async event => {
     }
 };
 
-export default idNovoEvento;
+// COMO EXTERNAR IDNOVOEVENTO E COMO EXPORTAR PARA OUTRO ARQUIVO JS
+
+const logIdNovoEvento = async () => await idNovoEvento;
+
+console.log(logIdNovoEvento().then(resultado => console.log(resultado)));
+
+// export default {idNovoEventos};

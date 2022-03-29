@@ -52,4 +52,10 @@ formNovoEvento.onsubmit = async event => {
     }
 };
 
+
+
 export default idNovoEvento;
+
+// Como externar a var idNovoEvento?
+// Como exporta-la p usar em outro arquivo js?
+// No Adm. panel, vamos editar e excluir cada evento daquele q ja ta la no HTML? Como saber o id de cada um? 

@@ -1,3 +1,4 @@
+// EDIT EVENT
 const nomeEditar = document.querySelector('#nome');
 const bannerEditar = document.querySelector('#banner');
 const atracoesEditar = document.querySelector('#atracoes');

@@ -43,7 +43,7 @@ formNovoEvento.onsubmit = async event => {
 
         const resposta = await fetch(`${BASE_URL}/events`, options);
         const conteudoResposta = await resposta.json();
-        console.log(conteudoResposta);
+        var idNovoEvento = conteudoResposta._id;
         alert('Deu bom')
 
     } catch (error) {
@@ -51,3 +51,5 @@ formNovoEvento.onsubmit = async event => {
         alert('Deu ruim');
     }
 };
+
+export default idNovoEvento;

@@ -12,7 +12,7 @@ const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com';
 
 body.onload = async (evento) => {
     
-    const resposta = await fetch(`${BASE_URL}/events/${ "624284d2a509fa88938d2615"}` , {method: "GET"})
+    const resposta = await fetch(`${BASE_URL}/events/${"6243703488397406a233da6e"}` , {method: "GET"})
     const conteudoResposta = await resposta.json()
 
 
@@ -24,8 +24,6 @@ body.onload = async (evento) => {
     descricaoEditar.value = description;
     dataEditar.value = scheduled;
     ticketsEditar.value = number_tickets;
-
-    console.log(conteudoResposta);
 };
 
 formEditar.onsubmit = async event => {
@@ -51,14 +49,12 @@ formEditar.onsubmit = async event => {
             },
         };
 
-        const resposta = await fetch(`${BASE_URL}/events/${ "624284d2a509fa88938d2615"}` , options)
+        const resposta = await fetch(`${BASE_URL}/events/${"6243703488397406a233da6e"}` , options)
         const conteudoResposta = await resposta.json()
         alert('Deu bom')
-        console.log(conteudoResposta);
 
     } catch (error) {
         console.log(error);
         alert('Deu ruim');
     }
 };
-

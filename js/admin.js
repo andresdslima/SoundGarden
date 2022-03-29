@@ -1,5 +1,14 @@
 // ADMIN
-// const ID_ATUAL = window.location.href.split('=')[1];
+// Colocar infos de uma pag pra outra pag:
+const ID_ATUAL = window.location.href.split('=')[1];
+// URL...?id=13neu13neu13&title=EventTitle&...
+// <a href="reservas.html?id=${item._id}">
+// Vamos usar depois...
+
+const inputTags = document.querySelectorAll('input');
+inputTags.forEach(input => {
+    input.setAttribute('required', '');
+});
 
 // Registrando novo evento
 const nomeNovoEvento = document.querySelector('#nome');
@@ -11,18 +20,16 @@ const formNovoEvento = document.querySelector('form');
 
 const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com';
 
-formNovoEvento.onsubmit = async evento => {
-    evento.preventDefault();
+formNovoEvento.onsubmit = async event => {
+    event.preventDefault();
 
     try {
-        const convertedDate = new Date(dataNovoEvento.value).toISOString();
-
         const novoEvento = {
             name: nomeNovoEvento.value,
             poster: "https://www.google.com",
             attractions: atracoesNovoEvento.value.split(', '),
             description: descricaoNovoEvento.value,
-            scheduled: convertedDate,
+            scheduled: dataNovoEvento.value,
             number_tickets: ticketsNovoEvento.value,
         };      
 
@@ -44,6 +51,3 @@ formNovoEvento.onsubmit = async evento => {
         alert('Deu ruim');
     }
 };
-
-
-

@@ -7,12 +7,12 @@ const dataDeletar = document.querySelector('#data');
 const ticketsDeletar = document.querySelector('#lotacao');
 const formDeletar = document.querySelector('form');
 const body = document.querySelector('body');
-
+const ID_ATUAL = window.location.search.split("=")
 const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com';
 
 body.onload = async evento => {
     
-    const resposta = await fetch(`${BASE_URL}/events/${"6243703488397406a233da6e"}`, {method: "GET"})
+    const resposta = await fetch(`${BASE_URL}/events/${ID_ATUAL[1]}`, {method: "GET"})
     const conteudoResposta = await resposta.json()
 
 
@@ -30,7 +30,7 @@ formDeletar.onsubmit = async event => {
     event.preventDefault();
 
     try {
-        const resposta = await fetch(`${BASE_URL}/events/${"6243703488397406a233da6e"}`, {method: "DELETE"});
+        const resposta = await fetch(`${BASE_URL}/events/${ID_ATUAL[1]}`, {method: "DELETE"});
         alert('Deu bom');
 
     } catch (error) {

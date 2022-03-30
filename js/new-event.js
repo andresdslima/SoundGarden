@@ -47,7 +47,7 @@ formNovoEvento.onsubmit = async event => {
         const conteudoResposta = await resposta.json();
         idNovoEvento = conteudoResposta._id;
         alert('Deu bom')
-        return idNovoEvento;
+        
 
     } catch (error) {
         console.log(error);

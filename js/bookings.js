@@ -8,7 +8,7 @@ const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com';
 
 body.onload = async (evento) => {
     
-    const resposta = await fetch(`${BASE_URL}/bookings/event/6243a4dd114f1ebe8db9f549` , {method: "GET"})
+    const resposta = await fetch(`${BASE_URL}/bookings/event/${ID_ATUAL[1]}` , {method: "GET"})
     const conteudoResposta = await resposta.json()
     console.log(conteudoResposta);
     const {owner_name, owner_email, number_tickets} = await conteudoResposta;    
@@ -23,10 +23,10 @@ body.onload = async (evento) => {
         </tr>
     </thead>
     <table id="tabela-eventos">`
-    for (let index = 50; index < 53; index++) {
+    for (let index = 0; index < conteudoResposta.length; index++) {
     tabela.innerHTML += `
     <tr>
-    <th scope="row">${index-49}</th>
+    <th scope="row">${index + 1}</th>
     <td>${conteudoResposta[index].owner_name}</td>
     <td>${conteudoResposta[index].owner_email}</td>
     <td>${conteudoResposta[index].number_tickets}</td>

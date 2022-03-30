@@ -1,8 +1,8 @@
 
 //GET EVENTOS API
-const tbody = document.querySelector('#tabela-eventos')
+const divEventos = document.querySelector('#allEvents')
 const body = document.querySelector('body');
-tbody.innerHTML = ''
+divEventos.innerHTML = ''
 const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com';
 
 body.onload = async (evento) => {
@@ -34,4 +34,42 @@ body.onload = async (evento) => {
     close.addEventListener('click', () => {
         modalContainer.classList.remove('show');
     });
+};
+
+// Registrando novo evento
+const nomeUsuario = document.querySelector('#name');
+const emailUsuario = document.querySelector('#email');
+const ticketsUsuario = document.querySelector('#tickets');
+const formNovoEvento = document.querySelector('form');
+
+
+formNovoEvento.onsubmit = async event => {
+    event.preventDefault();
+    const botaoId = document.querySelector('.open')
+    console.log("🚀 ~ file: index.js ~ line 49 ~ botaoId", botaoId.getAttribute('data-id'))
+
+    try {
+        const novaReserva = {
+            owner_name: nomeUsuario.value,
+            owner_email: emailUsuario.value,
+            number_tickets: ticketsUsuario.value,
+            event_id: botaoId.getAttribute('data-id')
+        };      
+
+        const options = {
+            method: "POST",
+            body: JSON.stringify(novaReserva),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        };
+
+        const resposta = await fetch(`${BASE_URL}/bookings`, options);
+        const conteudoResposta = await resposta.json();
+        alert('Deu bom')
+
+    } catch (error) {
+        console.log(error);
+        alert('Deu ruim');
+    }
 };

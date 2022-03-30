@@ -29,8 +29,6 @@ body.onload = async (evento) => {
 formEditar.onsubmit = async event => {
     event.preventDefault();
 
-
-
     try {
         const editarEvento = {
             name: nomeEditar.value,

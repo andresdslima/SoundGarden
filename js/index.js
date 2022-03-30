@@ -20,6 +20,7 @@ body.onload = async (evento) => {
     <a id="botao" data-id="${conteudoResposta[index]._id}" class="btn btn-primary open">Book tickets</a>
 </article>`
 }
+
     // MODAL
     const open = document.querySelectorAll('.open');
     const close = document.querySelector('#close');

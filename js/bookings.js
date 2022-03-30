@@ -1,15 +1,37 @@
-// BOOKINGS
-const eventBookings = document.querySelector('#event-bookings');
-const booking = document.createElement('div');
+const table = document.querySelector('.table')
+const tabela = document.querySelector('#tabela-eventos')
+const body = document.querySelector('body');
+table.innerHTML = ''
+tabela.innerHTML = ''
+const ID_ATUAL = window.location.search.split("=")
+const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com';
 
-booking.innerHTML += `
-    <ul>Name
-        <li>Email</li>
-        <li>Tickets</li>
-    </ul>
-    <hr>
-`;
-
-eventBookings.appendChild(booking);
-
-// Como mandar os dados do modal pra API ou p outra pagina? 
+body.onload = async (evento) => {
+    
+    const resposta = await fetch(`${BASE_URL}/bookings/event/6243a4dd114f1ebe8db9f549` , {method: "GET"})
+    const conteudoResposta = await resposta.json()
+    console.log(conteudoResposta);
+    const {owner_name, owner_email, number_tickets} = await conteudoResposta;    
+    table.innerHTML += `<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date</th>
+            <th scope="col">Title</th>
+            <th scope="col">Artists</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <table id="tabela-eventos">`
+    for (let index = 50; index < 53; index++) {
+    tabela.innerHTML += `
+    <tr>
+    <th scope="row">${index-49}</th>
+    <td>${conteudoResposta[index].owner_name}</td>
+    <td>${conteudoResposta[index].owner_email}</td>
+    <td>${conteudoResposta[index].number_tickets}</td>
+    </tr>`
+}
+table.innerHTML += `</table>
+</table>`
+};

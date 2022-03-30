@@ -113,3 +113,19 @@ footer nav ul li {
     justify-content: center;
     align-items: center;
 }
+
+@media only screen and (max-width: 767px) {
+    /* .row d-flex justify-content-center align-items-center {
+        display: grid;
+        grid-template-columns: 1;
+    } */
+    
+    #img-responsiva {
+        display: none;
+    }
+
+    /* footer {
+        display: flex !important;
+        flex-direction: column;
+    } */
+}

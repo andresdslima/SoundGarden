@@ -12,4 +12,6 @@ booking.innerHTML += `
 
 eventBookings.appendChild(booking);
 
-// Como mandar os dados do modal pra API ou p outra pagina? 
+// BASE_URL/events traz um array com tds os eventos... 
+
+// Como mandar os dados do modal pra API ou p outra pagina? precisa do id do event q vai ser feita a reserva!!! POST 

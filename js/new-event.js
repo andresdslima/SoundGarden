@@ -2,7 +2,7 @@
 // Colocar infos de uma pag pra outra pag:
 const ID_ATUAL = window.location.href.split('=')[1];
 // URL...?id=13neu13neu13&title=EventTitle&...
-// <a href="reservas.html?id=${item._id}">
+// <a href="reservas.html?id=${item._id}"> => alterar o atributo href do html pelo JS 
 // Vamos usar depois...
 
 const inputTags = document.querySelectorAll('input');
@@ -61,7 +61,6 @@ formNovoEvento.onsubmit = async event => {
 
 // Como externar a var idNovoEvento?
 // Como exporta-la p usar em outro arquivo js?
-// No Adm. panel, vamos editar e excluir cada evento daquele q ja ta la no HTML? Como saber o id de cada um? 
 
 // const logIdNovoEvento = async () => await idNovoEvento;
 

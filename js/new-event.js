@@ -22,7 +22,7 @@ formNewEvent.onsubmit = async event => {
             poster: "https://www.google.com",
             attractions: artistsNewEvent.value.split(', '),
             description: descriptionNewEvent.value,
-            scheduled: dateNewEvent.dateNewEventalue,
+            scheduled: dateNewEvent.value,
             number_tickets: ticketsNewEvent.value,
         };
 

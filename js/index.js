@@ -9,7 +9,7 @@ body.onload = async () => {
     const response = await fetch(`${BASE_URL}/events`, { method: "GET" });
     const contentResponse = await response.json();
 
-    for (let i = 50; i < 53; i++) {
+    for (let i = 0; i < 3; i++) {
         const finalDate = new Date(contentResponse[i].scheduled);
 
         divEvents.innerHTML += `

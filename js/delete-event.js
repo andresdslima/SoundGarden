@@ -17,17 +17,23 @@ const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com';
 const ID_ATUAL = window.location.search.split("=");
 
 body.onload = async () => {
-    const response = await fetch(`${BASE_URL}/events/${ID_ATUAL[1]}`, { method: "GET" });
-    const contentResponse = await response.json();
+    try {
+        const response = await fetch(`${BASE_URL}/events/${ID_ATUAL[1]}`, { method: "GET" });
+        const contentResponse = await response.json();
 
-    const { name, poster, attractions, description, scheduled, number_tickets } = await contentResponse;
+        const { name, poster, attractions, description, scheduled, number_tickets } = await contentResponse;
 
-    nameDelete.value = name;
-    bannerDelete.value = poster;
-    artistsDelete.value = attractions;
-    descriptionDelete.value = description;
-    dateDelete.value = scheduled;
-    ticketsDelete.value = number_tickets;
+        nameDelete.value = name;
+        bannerDelete.value = poster;
+        artistsDelete.value = attractions;
+        descriptionDelete.value = description;
+        dateDelete.value = scheduled;
+        ticketsDelete.value = number_tickets;
+
+    } catch (error) {
+        console.log(error);
+        alert('Error!!!');
+    };
 };
 
 formDelete.onsubmit = async event => {

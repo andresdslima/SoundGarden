@@ -124,8 +124,17 @@ a:hover {
     text-decoration: underline;
 }
 
+article {
+    text-align: center;
+}
+
 
 @media only screen and (max-width: 1000px) {
+    
+    * {
+        text-align: center;
+    }
+    
     #img-responsiva {
         display: none;
     }
@@ -137,9 +146,25 @@ a:hover {
         width: 75%;
         height: 75%;
     }
-    * {
-        text-align: center;
+
+    .row {
+        flex-direction: column !important;
     }
+
+    aside {
+        width: 100% !important;
+    }
+
+    .table-responsive {
+        width: 80vw !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* .bd-example {
+       overflow-x: scroll;
+       width: 100vw !important;
+    } */
 }
 
 

@@ -114,18 +114,18 @@ footer nav ul li {
     align-items: center;
 }
 
+a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
 @media only screen and (max-width: 767px) {
-    /* .row d-flex justify-content-center align-items-center {
-        display: grid;
-        grid-template-columns: 1;
-    } */
-    
     #img-responsiva {
         display: none;
     }
-
-    /* footer {
-        display: flex !important;
-        flex-direction: column;
-    } */
 }

@@ -67,29 +67,28 @@
                     <form action="" method="post" class="col-6">
                         <div class="mb-3">
                             <label for="nome" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="nome" aria-describedby="nome">
+                            <input placeholder="Ex: New Event" type="text" class="form-control" id="nome" aria-describedby="nome">
                         </div>
 
                         <div class="mb-3">
                             <label for="atracoes" class="form-label">Artists</label>
-                            <input type="text" class="form-control" id="atracoes" aria-describedby="atracoes">
+                            <input placeholder="Ex: Artist 1, Artist 2, ..." type="text" class="form-control" id="atracoes" aria-describedby="atracoes">
                             <small>Type the name of the artists separated with a comma ","</small>
                         </div>
 
                         <div class="mb-3">
                             <label for="descricao" class="form-label">Description</label>
-                            <textarea name="descricao" id="descricao" class="form-control" rows="5" required></textarea>
+                            <textarea placeholder="Type the event description here." name="descricao" id="descricao" class="form-control" rows="5" required></textarea>
                         </div>
 
                         <div class="mb-3">
                             <label for="data" class="form-label">Date</label>
-                            <input type="datetime-local" name="data" id="data" class="form-control"
-                                placeholder="12/30/2020 16:20">
+                            <input type="datetime-local" name="data" id="data" class="form-control">
                         </div>
 
                         <div class="mb-3">
                             <label for="lotacao" class="form-label">Available tickets</label>
-                            <input type="number" class="form-control" id="lotacao" aria-describedby="lotacao">
+                            <input placeholder="How many available tickets are there?" type="number" class="form-control" id="lotacao" aria-describedby="lotacao">
                         </div>
                         <button type="submit" class="btn btn-primary">Send</button>
                     </form>

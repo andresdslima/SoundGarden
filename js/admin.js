@@ -10,10 +10,12 @@ body.onload = async () => {
     const contentResponse = await response.json();
 
     for (let i = 50; i < 56; i++) {
+        const finalDate = new Date(contentResponse[i].scheduled);
+        
         tbody.innerHTML += `
             <tr>
                 <th scope="row">${i - 49}</th>
-                <td>${contentResponse[i].scheduled}</td>
+                <td>${finalDate.getDate()}/${finalDate.getMonth() + 1}/${finalDate.getFullYear()}</td>
                 <td>${contentResponse[i].name}</td>
                 <td>${contentResponse[i].attractions}</td>
                 <td>

@@ -10,10 +10,12 @@ body.onload = async () => {
     const contentResponse = await response.json();
 
     for (let i = 50; i < 56; i++) {
+        const finalDate = new Date(contentResponse[i].scheduled);
+        
         divEvents.innerHTML += `
             <article class="evento card p-5 m-3">
                 <h2 id="nomeData">
-                    ${contentResponse[i].name} - ${contentResponse[i].scheduled}
+                    ${contentResponse[i].name} - ${finalDate.getDate()}/${finalDate.getMonth() + 1}/${finalDate.getFullYear()}
                 </h2>
                 <h4 id="atracoes">
                     ${contentResponse[i].attractions}

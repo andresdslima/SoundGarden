@@ -10,7 +10,7 @@ body.onload = async () => {
     const response = await fetch(`${BASE_URL}/bookings/event/${ID_ATUAL[1]}`, { method: "GET" });
     const contentResponse = await response.json();
 
-    contentResponse.forEach( (element, index) => {
+    contentResponse.forEach((element, index) => {
         bookingList.innerHTML += `
             <tr>
                 <th scope="row">${index + 1}</th>

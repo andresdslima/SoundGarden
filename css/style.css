@@ -124,11 +124,11 @@ a:hover {
     text-decoration: underline;
 }
 
-
 @media only screen and (max-width: 1000px) {
     #img-responsiva {
         display: none;
     }
+    
     #eventos-index {
         flex-direction: column;
     }
@@ -137,12 +137,8 @@ a:hover {
         width: 75%;
         height: 75%;
     }
+
     * {
         text-align: center;
     }
 }
-
-
-
-
-

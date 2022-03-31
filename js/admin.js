@@ -14,7 +14,7 @@ body.onload = async () => {
         
         tbody.innerHTML += `
             <tr>
-                <th scope="row">${i - 49}</th>
+                <th scope="row">${i + 1}</th>
                 <td>${finalDate.getDate()}/${finalDate.getMonth() + 1}/${finalDate.getFullYear()}</td>
                 <td>${contentResponse[i].name}</td>
                 <td>${contentResponse[i].attractions}</td>

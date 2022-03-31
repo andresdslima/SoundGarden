@@ -124,11 +124,19 @@ a:hover {
     text-decoration: underline;
 }
 
+article {
+    text-align: center;
+}
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 900px) {
+    * {
+        text-align: center;
+    }
+
     #img-responsiva {
         display: none;
     }
+
     #eventos-index {
         flex-direction: column;
     }
@@ -137,9 +145,11 @@ a:hover {
         width: 75%;
         height: 75%;
     }
-    * {
-        text-align: center;
+
+    .row {
+        flex-direction: column !important;
     }
+<<<<<<< HEAD
 
     .row {
         flex-direction: column !important;
@@ -159,7 +169,29 @@ a:hover {
 
 }
 
+=======
+>>>>>>> dd4d6fab3a9aafb69d28c37c83daf2bc8356ac20
 
+    aside {
+        width: 100% !important;
+    }
 
+    main {
+        text-align: center !important;
+        width: 100vw !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+    }
 
+    main * {
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
 
+    .table-responsive {
+        width: 80vw !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}

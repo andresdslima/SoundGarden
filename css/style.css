@@ -149,28 +149,6 @@ article {
     .row {
         flex-direction: column !important;
     }
-<<<<<<< HEAD
-
-    .row {
-        flex-direction: column !important;
-    }
-
-    aside, main {
-        width: 100% !important;
-    }
-
-    .tabela-eventos {
-        display: flex !important;
-        flex-wrap: wrap !important;
-    }
-
-
-
-
-}
-
-=======
->>>>>>> dd4d6fab3a9aafb69d28c37c83daf2bc8356ac20
 
     aside {
         width: 100% !important;

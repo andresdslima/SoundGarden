@@ -40,7 +40,8 @@ formDelete.onsubmit = async event => {
     event.preventDefault();
 
     try {
-        await fetch(`${BASE_URL}/events/${ID_ATUAL[1]}`, { method: "DELETE" });
+        const response = await fetch(`${BASE_URL}/events/${ID_ATUAL[1]}`, { method: "DELETE" });
+        const contentResponse = await response.json();
         alert('Event deleted successfully!');
 
     } catch (error) {

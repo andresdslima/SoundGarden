@@ -52,7 +52,8 @@ formEdit.onsubmit = async event => {
             },
         };
 
-        await fetch(`${BASE_URL}/events/${ID_ATUAL[1]}`, options);
+        const response = await fetch(`${BASE_URL}/events/${ID_ATUAL[1]}`, options);
+        const contentResponse = await response.json();
         alert('Event edited successfully!');
 
     } catch (error) {

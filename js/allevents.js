@@ -36,11 +36,16 @@ body.onload = async () => {
         const close = document.querySelector('#close');
         const send = document.querySelector('#send');
         const modal = document.querySelector('.modal-container');
+        const subtitle = document.querySelector('#subtitle');
 
         open.forEach(element => {
-            element.addEventListener('click', () => {
+            element.addEventListener('click', async () => {
                 modal.classList.add('show');
-                send.setAttribute('data-id', `${element.getAttribute("data-id")}`);
+                send.setAttribute('data-id', `${element.getAttribute('data-id')}`);
+
+                const response2 = await fetch(`${BASE_URL}/events/${element.getAttribute('data-id')}`, { method: "GET" });
+                const contentResponse2 = await response2.json();
+                subtitle.innerHTML = contentResponse2.name;
             });
         });
 
@@ -81,7 +86,8 @@ formNewBooking.onsubmit = async event => {
             },
         };
 
-        await fetch(`${BASE_URL}/bookings`, options);
+        const response = await fetch(`${BASE_URL}/bookings`, options);
+        const contentResponse = await response.json();
         alert('Event tickets booked successfully!')
 
     } catch (error) {

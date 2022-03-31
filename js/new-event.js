@@ -34,7 +34,8 @@ formNewEvent.onsubmit = async event => {
             },
         };
 
-        await fetch(`${BASE_URL}/events`, options);
+        const response = await fetch(`${BASE_URL}/events`, options);
+        const contentResponse = await response.json();
         alert('Event registered successfully!')
 
     } catch (error) {

@@ -15,7 +15,7 @@
     <div class="container-fluid">
         <div class="row">
             <aside class="d-flex flex-column flex-shrink-0 p-3 bg-light col-2">
-                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <a href="index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                     <svg class="bi me-2" width="40" height="32">
                         <use xlink:href="#bootstrap"></use>
                     </svg>
@@ -60,7 +60,7 @@
                     <h1>Event Bookings</h1>
                 </div>
 
-                <h2>Event</h2>
+                <h2 id="event-title">Event</h2>
                 <div class="bd-example">
                     <table class="table">
                         <thead>
@@ -72,19 +72,9 @@
                             </tr>
                         </thead>
 
-                        <table id="tabela-eventos">
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>05/03/2022 20:00</td>
-                                <td>Coala Festival</td>
-                                <td>Miley Cyrus, Liniker, Smashing Pumpkins</td>
-                                <td>
-                                    <a href="bookings.html" class="btn btn-dark">Check bookings</a>
-                                    <a href="edit-event.html" class="btn btn-secondary">Edit</a>
-                                    <a href="delete-event.html" class="btn btn-danger">Delete</a>
-                                </td>
-                            </tr>
-                        </table>
+                        <tbody id="tabela-eventos">
+                            <!-- Booking List -->
+                        </tbody>
                     </table>
                 </div>
             </main>

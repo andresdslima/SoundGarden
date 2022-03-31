@@ -7,9 +7,9 @@ const dataEditar = document.querySelector('#data');
 const ticketsEditar = document.querySelector('#lotacao');
 const formEditar = document.querySelector('form');
 const body = document.querySelector('body');
+
 const ID_ATUAL = window.location.search.split("=")
 const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com';
-console.log(ID_ATUAL[1]);
 
 body.onload = async (evento) => {
    

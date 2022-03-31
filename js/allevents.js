@@ -1,33 +1,45 @@
-
 //GET EVENTOS API
-const divEventos = document.querySelector('#allEvents')
 const body = document.querySelector('body');
-divEventos.innerHTML = ''
+const divEventos = document.querySelector('#allEvents');
+divEventos.innerHTML = '';
+
 const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com';
 
-body.onload = async (evento) => {
-    
-    const resposta = await fetch(`${BASE_URL}/events` , {method: "GET"})
-    const conteudoResposta = await resposta.json()
+body.onload = async () => {
+    const resposta = await fetch(`${BASE_URL}/events`, { method: "GET" });
+    const conteudoResposta = await resposta.json();
 
-    const {_id, name, attractions, scheduled, description} = await conteudoResposta;    
-    
-    for (let index = 50; index < 56; index++) {
-    divEventos.innerHTML += `<article class="evento card p-5 m-3">
-    <h2 id="nomeData">${conteudoResposta[index].name} - ${conteudoResposta[index].scheduled}</h2>
-    <h4 id="atracoes">${conteudoResposta[index].attractions}</h4>
-    <p id="descricao">${conteudoResposta[index].description}</p>
-    <a id="botao" data-id="${conteudoResposta[index]._id}" class="btn btn-primary open">Book tickets</a>
-</article>`
-}
+    const { _id, name, attractions, scheduled, description } = await conteudoResposta;
+
+    for (let i = 50; i < 56; i++) {
+        divEventos.innerHTML += `
+            <article class="evento card p-5 m-3">
+                <h2 id="nomeData">
+                    ${conteudoResposta[i].name} - ${conteudoResposta[i].scheduled}
+                </h2>
+                <h4 id="atracoes">
+                    ${conteudoResposta[i].attractions}
+                </h4>
+                <p id="descricao">
+                    ${conteudoResposta[i].description}
+                </p>
+                <a id="botao" data-id="${conteudoResposta[i]._id}" class="btn btn-primary open">
+                    Book tickets
+                </a>
+            </article>
+        `;
+    };
+
     // MODAL
     const open = document.querySelectorAll('.open');
     const close = document.querySelector('#close');
+    const send = document.querySelector('#send');
     const modalContainer = document.querySelector('.modal-container');
 
     open.forEach(element => {
         element.addEventListener('click', () => {
             modalContainer.classList.add('show');
+            send.setAttribute('data-id', `${element.getAttribute("data-id")}`);
         });
     });
 
@@ -36,25 +48,25 @@ body.onload = async (evento) => {
     });
 };
 
-// Registrando novo evento
+// Registrando nova reserva
 const nomeUsuario = document.querySelector('#name');
 const emailUsuario = document.querySelector('#email');
 const ticketsUsuario = document.querySelector('#tickets');
-const formNovoEvento = document.querySelector('form');
+const formNovaReserva = document.querySelector('form');
 
 
-formNovoEvento.onsubmit = async event => {
+formNovaReserva.onsubmit = async event => {
     event.preventDefault();
-    const botaoId = document.querySelector('.open')
-    console.log("🚀 ~ file: index.js ~ line 49 ~ botaoId", botaoId.getAttribute('data-id'))
+
+    const send = document.querySelector('#send');
 
     try {
         const novaReserva = {
             owner_name: nomeUsuario.value,
             owner_email: emailUsuario.value,
-            number_tickets: ticketsUsuario.value,
-            event_id: botaoId.getAttribute('data-id')
-        };      
+            number_tickets: parseInt(ticketsUsuario.value),
+            event_id: send.getAttribute('data-id'),
+        };
 
         const options = {
             method: "POST",
@@ -64,12 +76,11 @@ formNovoEvento.onsubmit = async event => {
             },
         };
 
-        const resposta = await fetch(`${BASE_URL}/bookings`, options);
-        const conteudoResposta = await resposta.json();
+        await fetch(`${BASE_URL}/bookings`, options);
         alert('Deu bom')
 
     } catch (error) {
         console.log(error);
         alert('Deu ruim');
-    }
+    };
 };

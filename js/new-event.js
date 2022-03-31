@@ -1,10 +1,4 @@
 // NEW EVENT
-// Colocar infos de uma pag pra outra pag:
-const ID_ATUAL = window.location.href.split('=')[1];
-// URL...?id=13neu13neu13&title=EventTitle&...
-// <a href="reservas.html?id=${item._id}"> => alterar o atributo href do html pelo JS 
-// Vamos usar depois...
-
 const inputTags = document.querySelectorAll('input');
 inputTags.forEach(input => {
     input.setAttribute('required', '');
@@ -19,8 +13,6 @@ const ticketsNovoEvento = document.querySelector('#lotacao');
 const formNovoEvento = document.querySelector('form');
 
 const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com';
-
-var idNovoEvento;
 
 formNovoEvento.onsubmit = async event => {
     event.preventDefault();
@@ -43,9 +35,7 @@ formNovoEvento.onsubmit = async event => {
             },
         };
 
-        const resposta = await fetch(`${BASE_URL}/events`, options);
-        const conteudoResposta = await resposta.json();
-        idNovoEvento = conteudoResposta._id;
+        await fetch(`${BASE_URL}/events`, options);
         alert('Deu bom')
         
 
@@ -54,14 +44,3 @@ formNovoEvento.onsubmit = async event => {
         alert('Deu ruim');
     }
 };
-
-
-
-// export default idNovoEvento;
-
-// Como externar a var idNovoEvento?
-// Como exporta-la p usar em outro arquivo js?
-
-// const logIdNovoEvento = async () => await idNovoEvento;
-
-// console.log(logIdNovoEvento().then(resultado => console.log(resultado)));

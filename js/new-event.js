@@ -4,43 +4,41 @@ inputTags.forEach(input => {
     input.setAttribute('required', '');
 });
 
-// Registrando novo evento
-const nomeNovoEvento = document.querySelector('#nome');
-const atracoesNovoEvento = document.querySelector('#atracoes');
-const descricaoNovoEvento = document.querySelector('#descricao');
-const dataNovoEvento = document.querySelector('#data');
-const ticketsNovoEvento = document.querySelector('#lotacao');
-const formNovoEvento = document.querySelector('form');
+const nameNewEvent = document.querySelector('#nome');
+const artistsNewEvent = document.querySelector('#atracoes');
+const descriptionNewEvent = document.querySelector('#descricao');
+const dateNewEvent = document.querySelector('#data');
+const ticketsNewEvent = document.querySelector('#lotacao');
+const formNewEvent = document.querySelector('form');
 
 const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com';
 
-formNovoEvento.onsubmit = async event => {
+formNewEvent.onsubmit = async event => {
     event.preventDefault();
 
     try {
-        const novoEvento = {
-            name: nomeNovoEvento.value,
+        const newEvent = {
+            name: nameNewEvent.value,
             poster: "https://www.google.com",
-            attractions: atracoesNovoEvento.value.split(', '),
-            description: descricaoNovoEvento.value,
-            scheduled: dataNovoEvento.value,
-            number_tickets: ticketsNovoEvento.value,
-        };      
+            attractions: artistsNewEvent.value.split(', '),
+            description: descriptionNewEvent.value,
+            scheduled: dateNewEvent.dateNewEventalue,
+            number_tickets: ticketsNewEvent.value,
+        };
 
         const options = {
             method: "POST",
-            body: JSON.stringify(novoEvento),
+            body: JSON.stringify(newEvent),
             headers: {
                 "Content-Type": "application/json",
             },
         };
 
         await fetch(`${BASE_URL}/events`, options);
-        alert('Deu bom')
-        
+        alert('Event registered successfully!')
 
     } catch (error) {
         console.log(error);
-        alert('Deu ruim');
+        alert('Error!!!');
     }
 };

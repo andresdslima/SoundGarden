@@ -1,40 +1,44 @@
 // DELETE EVENT
-const nomeDeletar = document.querySelector('#nome');
-const bannerDeletar = document.querySelector('#banner');
-const atracoesDeletar = document.querySelector('#atracoes');
-const descricaoDeletar = document.querySelector('#descricao');
-const dataDeletar = document.querySelector('#data');
-const ticketsDeletar = document.querySelector('#lotacao');
-const formDeletar = document.querySelector('form');
+const inputTags = document.querySelectorAll('input');
+inputTags.forEach(input => {
+    input.setAttribute('required', '');
+});
+
+const nameDelete = document.querySelector('#nome');
+const bannerDelete = document.querySelector('#banner');
+const artistsDelete = document.querySelector('#atracoes');
+const descriptionDelete = document.querySelector('#descricao');
+const dateDelete = document.querySelector('#data');
+const ticketsDelete = document.querySelector('#lotacao');
+const formDelete = document.querySelector('form');
 const body = document.querySelector('body');
-const ID_ATUAL = window.location.search.split("=")
+
 const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com';
+const ID_ATUAL = window.location.search.split("=");
 
-body.onload = async evento => {
-    
-    const resposta = await fetch(`${BASE_URL}/events/${ID_ATUAL[1]}`, {method: "GET"})
-    const conteudoResposta = await resposta.json()
+body.onload = async () => {
+    const response = await fetch(`${BASE_URL}/events/${ID_ATUAL[1]}`, { method: "GET" });
+    const contentResponse = await response.json();
 
+    const { name, poster, attractions, description, scheduled, number_tickets } = await contentResponse;
 
-    const {name, poster, attractions, description, scheduled, number_tickets} = await conteudoResposta;
-
-    nomeDeletar.value = name;
-    bannerDeletar.value = poster;
-    atracoesDeletar.value = attractions;
-    descricaoDeletar.value = description;
-    dataDeletar.value = scheduled;
-    ticketsDeletar.value = number_tickets;
+    nameDelete.value = name;
+    bannerDelete.value = poster;
+    artistsDelete.value = attractions;
+    descriptionDelete.value = description;
+    dateDelete.value = scheduled;
+    ticketsDelete.value = number_tickets;
 };
 
-formDeletar.onsubmit = async event => {
+formDelete.onsubmit = async event => {
     event.preventDefault();
 
     try {
-        const resposta = await fetch(`${BASE_URL}/events/${ID_ATUAL[1]}`, {method: "DELETE"});
-        alert('Deu bom');
+        await fetch(`${BASE_URL}/events/${ID_ATUAL[1]}`, { method: "DELETE" });
+        alert('Event deleted successfully!');
 
     } catch (error) {
         console.log(error);
-        alert('Deu ruim');
+        alert('Error!!!');
     }
 };

@@ -1,27 +1,27 @@
+// BOOKING LIST
 const body = document.querySelector('body');
 const bookingList = document.querySelector('#tabela-eventos');
 const eventTitle = document.querySelector("#event-title");
 
-const ID_ATUAL = window.location.search.split("=");
 const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com';
+const ID_ATUAL = window.location.search.split("=");
 
 body.onload = async () => {
-    const resposta = await fetch(`${BASE_URL}/bookings/event/${ID_ATUAL[1]}`, { method: "GET" });
-    const conteudoResposta = await resposta.json();
-    // const { owner_name, owner_email, number_tickets } = await conteudoResposta;
-    // eventTitle.innerHTML = ID_ATUAL[1].event.name;
+    const response = await fetch(`${BASE_URL}/bookings/event/${ID_ATUAL[1]}`, { method: "GET" });
+    const contentResponse = await response.json();
 
-    for (let i = 0; i < conteudoResposta.length; i++) {
+    contentResponse.forEach( (element, index) => {
         bookingList.innerHTML += `
             <tr>
-                <th scope="row">${i + 1}</th>
-                <td>${conteudoResposta[i].owner_name}</td>
-                <td>${conteudoResposta[i].owner_email}</td>
-                <td>${conteudoResposta[i].number_tickets}</td>
+                <th scope="row">${index + 1}</th>
+                <td>${element.owner_name}</td>
+                <td>${element.owner_email}</td>
+                <td>${element.number_tickets}</td>
             </tr>
         `;
-    };
+    });
 
-    // const eventTitle = JSON.parse(conteudoResposta[0].evento);
-    // console.log(eventTitle);
+    const response2 = await fetch(`${BASE_URL}/events/${ID_ATUAL[1]}`, { method: "GET" });
+    const contentResponse2 = await response2.json();
+    eventTitle.innerHTML = contentResponse2.name;
 };

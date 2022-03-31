@@ -1,59 +1,56 @@
 // EDIT EVENT
-const nomeEditar = document.querySelector('#nome');
-const bannerEditar = document.querySelector('#banner');
-const atracoesEditar = document.querySelector('#atracoes');
-const descricaoEditar = document.querySelector('#descricao');
-const dataEditar = document.querySelector('#data');
-const ticketsEditar = document.querySelector('#lotacao');
-const formEditar = document.querySelector('form');
+const nameEdit = document.querySelector('#nome');
+const bannerEdit = document.querySelector('#banner');
+const artistsEdit = document.querySelector('#atracoes');
+const descriptionEdit = document.querySelector('#descricao');
+const dateEdit = document.querySelector('#data');
+const ticketsEdit = document.querySelector('#lotacao');
+const formEdit = document.querySelector('form');
 const body = document.querySelector('body');
 
-const ID_ATUAL = window.location.search.split("=")
 const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com';
+const ID_ATUAL = window.location.search.split("=");
 
-body.onload = async (evento) => {
-   
-    const resposta = await fetch(`${BASE_URL}/events/${ID_ATUAL[1]}` , {method: "GET"})
-    const conteudoResposta = await resposta.json()
+body.onload = async () => {
+    const response = await fetch(`${BASE_URL}/events/${ID_ATUAL[1]}`, { method: "GET" });
+    const contentResponse = await response.json();
 
+    const { name, poster, attractions, description, scheduled, number_tickets } = await contentResponse;
 
-    const {name, poster, attractions, description, scheduled, number_tickets} = await conteudoResposta;
-
-    nomeEditar.value = name;
-    bannerEditar.value = poster;
-    atracoesEditar.value = attractions;
-    descricaoEditar.value = description;
-    dataEditar.value = scheduled;
-    ticketsEditar.value = number_tickets;
+    nameEdit.value = name;
+    bannerEdit.value = poster;
+    artistsEdit.value = attractions;
+    descriptionEdit.value = description;
+    dateEdit.value = scheduled;
+    ticketsEdit.value = number_tickets;
 };
 
-formEditar.onsubmit = async event => {
+formEdit.onsubmit = async event => {
     event.preventDefault();
 
     try {
-        const editarEvento = {
-            name: nomeEditar.value,
-            poster: bannerEditar.value,
-            attractions: atracoesEditar.value.split(', '),
-            description: descricaoEditar.value,
-            scheduled: dataEditar.value,
-            number_tickets: ticketsEditar.value,
-        };      
+        const editEvent = {
+            name: nameEdit.value,
+            poster: bannerEdit.value,
+            attractions: artistsEdit.value.split(', '),
+            description: descriptionEdit.value,
+            scheduled: dateEdit.value,
+            number_tickets: ticketsEdit.value,
+        };
 
         const options = {
             method: "PUT",
-            body: JSON.stringify(editarEvento),
+            body: JSON.stringify(editEvent),
             headers: {
                 "Content-Type": "application/json",
             },
         };
 
-        const resposta = await fetch(`${BASE_URL}/events/${ID_ATUAL[1]}` , options)
-        const conteudoResposta = await resposta.json()
-        alert('Deu bom')
+        await fetch(`${BASE_URL}/events/${ID_ATUAL[1]}`, options);
+        alert('Event edited successfully!');
 
     } catch (error) {
         console.log(error);
-        alert('Deu ruim');
-    }
+        alert('Error!!!');
+    };
 };

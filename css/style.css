@@ -140,6 +140,23 @@ a:hover {
     * {
         text-align: center;
     }
+
+    .row {
+        flex-direction: column !important;
+    }
+
+    aside, main {
+        width: 100% !important;
+    }
+
+    .tabela-eventos {
+        display: flex !important;
+        flex-wrap: wrap !important;
+    }
+
+
+
+
 }
 
 

@@ -53,6 +53,14 @@ body.onload = async () => {
             modal.classList.remove('show');
         });
 
+        document.addEventListener('keydown', event => {
+            let key = event.key;
+
+            if (key === 'Escape') {
+                modal.classList.remove('show');
+            }
+        });
+
     } catch (error) {
         console.log(error);
         alert('Error!!!');

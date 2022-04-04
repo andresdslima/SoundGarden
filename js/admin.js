@@ -1,44 +1,47 @@
-// ADMIN
 const body = document.querySelector('body');
 const tbody = document.querySelector('#tabela-eventos');
-tbody.innerHTML = '';
+const loading = document.querySelector('#loading');
 
 const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com';
 
+loading.style.display = "block"; //Loading Gif
+
 body.onload = async () => {
     try {
-        const response = await fetch(`${BASE_URL}/events`, { method: "GET" });
-        const contentResponse = await response.json();
+        const responseEvents = await fetch(`${BASE_URL}/events`, { method: "GET" });
+        const contentResponseEvents = await responseEvents.json();
+        loading.style.display = "none";
 
         for (let i = 0; i < 6; i++) {
-            const finalDate = new Date(contentResponse[i].scheduled);
+            const finalDate = new Date(contentResponseEvents[i].scheduled);
 
-            tbody.innerHTML += `
+            tbody.insertAdjacentHTML("beforeend", `
                 <tr>
                     <th scope="row">
                         ${i + 1}
                     </th>
                     <td>
-                        ${finalDate.getDate()}/${finalDate.getMonth() + 1}/${finalDate.getFullYear()}
+                        ${finalDate.toLocaleDateString('en-GB')}
                     </td>
                     <td>
-                        ${contentResponse[i].name}
+                        ${contentResponseEvents[i].name}
                     </td>
                     <td>
-                        ${contentResponse[i].attractions}
+                        ${contentResponseEvents[i].attractions}
                     </td>
                     <td>
-                        <a href="bookings.html?id=${contentResponse[i]._id}" class="btn btn-dark">
+                        <a href="bookings.html?id=${contentResponseEvents[i]._id}" class="btn btn-dark">
                         Check bookings</a>
-                        <a href="edit-event.html?id=${contentResponse[i]._id}" class="btn btn-secondary">Edit</a>
-                        <a href="delete-event.html?id=${contentResponse[i]._id}" class="btn btn-danger">Delete</a>
+                        <a href="edit-event.html?id=${contentResponseEvents[i]._id}" class="btn btn-secondary">Edit</a>
+                        <a href="delete-event.html?id=${contentResponseEvents[i]._id}" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
-            `;
+            `);
         };
 
     } catch (error) {
         console.log(error);
+        loading.style.display = "none";
         alert('Error!!!');
     };
 };

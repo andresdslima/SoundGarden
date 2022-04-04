@@ -129,6 +129,15 @@ article {
     font-weight: bold;
 }
 
+#loading {
+    display: none;
+}
+
+#gif {
+    display: flex;
+    justify-content: center;
+}
+
 @media only screen and (max-width: 900px) {
     * {
         text-align: center;
@@ -172,5 +181,10 @@ article {
         width: 80vw !important;
         margin: 0 !important;
         padding: 0 !important;
+    }
+
+    section div {
+        display: flex;
+        flex-direction: column;
     }
 }

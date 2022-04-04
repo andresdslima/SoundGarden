@@ -1,45 +1,22 @@
-// NEW EVENT
 const inputTags = document.querySelectorAll('input');
 inputTags.forEach(input => {
     input.setAttribute('required', '');
 });
 
-const nameNewEvent = document.querySelector('#nome');
-const artistsNewEvent = document.querySelector('#atracoes');
-const descriptionNewEvent = document.querySelector('#descricao');
-const dateNewEvent = document.querySelector('#data');
-const ticketsNewEvent = document.querySelector('#lotacao');
+const nameEvent = document.querySelector('#nome');
+const bannerEvent = document.querySelector('#banner');
+const artistsEvent = document.querySelector('#atracoes');
+const descriptionEvent = document.querySelector('#descricao');
+const dateEvent = document.querySelector('#data');
+const ticketsEvent = document.querySelector('#lotacao');
 const formNewEvent = document.querySelector('form');
+const modalContainer = document.querySelector('.modal-container');
+const modal = document.querySelector('.my-modal');
 
 const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com';
 
 formNewEvent.onsubmit = async event => {
     event.preventDefault();
 
-    try {
-        const newEvent = {
-            name: nameNewEvent.value,
-            poster: "https://www.google.com",
-            attractions: artistsNewEvent.value.split(', '),
-            description: descriptionNewEvent.value,
-            scheduled: dateNewEvent.value,
-            number_tickets: ticketsNewEvent.value,
-        };
-
-        const options = {
-            method: "POST",
-            body: JSON.stringify(newEvent),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        };
-
-        const response = await fetch(`${BASE_URL}/events`, options);
-        const contentResponse = await response.json();
-        alert('Event registered successfully!')
-
-    } catch (error) {
-        console.log(error);
-        alert('Error!!!');
-    }
+    sendDataEvents('POST', '/events');
 };

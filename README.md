@@ -1,9 +1,9 @@
 # Sound Garden Project
 
-- [Website deploy](https://sound-garden.vercel.app)
+- [Web application deploy](https://sound-garden.vercel.app)
 - [GitHub pages](https://andresdslima.github.io/SoundGarden)
 
-https://user-images.githubusercontent.com/96556922/161321424-408ec141-c5e9-43b7-815f-b0f1a1e7439a.mp4
+https://user-images.githubusercontent.com/96556922/161608613-9ad060a4-4bb7-42fc-b465-4694b65deb4c.mp4
 
 >**Technologies:** *HTML | CSS | Bootstrap | JavaScript*
 

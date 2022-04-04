@@ -24,6 +24,7 @@ body.onload = getDataEvent(); //services.js
 
 formDelete.onsubmit = async event => {
     event.preventDefault();
+    alert('Are you sure?');
 
     try {
         modal.insertAdjacentHTML("afterbegin", myModal);

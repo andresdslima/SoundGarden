@@ -10,7 +10,7 @@ const formatDate = date => {
     const newDate = new Date(date);
 
     return `${newDate.getFullYear()}-${formatNumber(newDate.getMonth() + 1)}-${formatNumber(newDate.getDate())
-        }` + `T${newDate.getHours()}:${newDate.getMinutes()
+        }` + `T${formatNumber(newDate.getHours())}:${newDate.getMinutes()
         }`;
 };
 
